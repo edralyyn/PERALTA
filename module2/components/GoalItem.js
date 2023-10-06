@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import GoalImage from './GoalImage';
+import DeleteWarning from './DeleteWarning'
 
 const imageUrl = require('./me.jpg');
 
@@ -11,7 +12,7 @@ function GoalItem(props) {
         <GoalImage imageUrl={imageUrl} />
         <Text numberOfLines={2} ellipsizeMode="tail" style={styles.enteredText}>{props.text}</Text>
         <TouchableOpacity onPress={props.onDelete}>
-          <Text style={styles.deleteButton}>Delete</Text>
+          <DeleteWarning/>
         </TouchableOpacity>
       </View>
     </ScrollView>

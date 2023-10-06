@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Modal } from 'react-native';
 import GoalItem from './components/GoalItem';
 import GoalInput from './components/GoalInput';
+import MyModal from './components/MyModal';
 
 export default function App() {
   const [courseGoals, setCourseGoals] = useState([]);
@@ -18,10 +19,12 @@ export default function App() {
     setCourseGoals((currentCourseGoals) => {
       return currentCourseGoals.filter((goal) => goal.id !== goalId);
     });
+
   };
 
   return (
     <View style={styles.appContainer}>
+      <MyModal/>
       <Text style={styles.textStyle}>My List of Goals</Text>
       <GoalInput onAddGoal={addGoalHandler} />
       <View style={styles.goalContainer}>
